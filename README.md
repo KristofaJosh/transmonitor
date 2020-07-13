@@ -10,14 +10,13 @@ Site: [TransMonitor DashBoard](https://chrisjosh-transmonitor.netlify.app/)
 ![Transmonitor](public/assets/desktop.png)
 ![Transmonitor Mobile](public/assets/mobile.png)
 
-Mock up build for the [BankWithMint](http://bankwithmint.com/) Frontend test. Powered by React. 
+Mock up build for the [BankWithMint](http://bankwithmint.com/) Frontend test. Powered by Create React App. 
 
 ## Features
 * Context
 * Routers
 * Paginations
 * Sidebar Toggle
-* Responsive Table
 * Desktop and Mobile Responsive Layout
 
 ## Design Pattern
