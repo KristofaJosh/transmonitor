@@ -9,6 +9,7 @@ import chart from "./chartsm.svg";
 
 const TransCard = ({title, symbol, number}) => {
 
+
     return (
         <Styling>
             <div>
