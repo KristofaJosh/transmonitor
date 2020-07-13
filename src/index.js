@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {ConstantProvider} from "./ui/constants";
+
 
 ReactDOM.render(
     <React.StrictMode>
-        <App/>
+        <ConstantProvider>
+            <App/>
+        </ConstantProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
