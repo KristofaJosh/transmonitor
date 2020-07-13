@@ -22,7 +22,7 @@ Mock up build for the [BankWithMint](http://bankwithmint.com/) Frontend test. Po
 ## Design Pattern
 * Atomic Design Pattern
 
-* Built with intent for production
+This App was Built with intent for production
 
 ## Running the Project
 Run yarn install to download and update dependencies
