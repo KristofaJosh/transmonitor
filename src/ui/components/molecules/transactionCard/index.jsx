@@ -6,13 +6,15 @@ import {Color} from "../../../constants/siteColors";
 import Text from "../../atoms/typography";
 import chart from "./chartsm.svg";
 
+
 const TransCard = ({title, symbol, number}) => {
 
     return (
         <Styling>
             <div>
                 <Text small grey>{title}</Text>
-                <Text semi>{symbol ? symbol + '' + thousandsSeparators(number || 0) : thousandsSeparators(number || 0)}</Text>
+                <Text
+                    semi>{symbol ? symbol + '' + thousandsSeparators(number || 0) : thousandsSeparators(number || 0)}</Text>
             </div>
             <div>
                 <img src={chart} alt={"chart"}/>
