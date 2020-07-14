@@ -80,6 +80,7 @@ const PaymentLogs = ({data: allData}) => {
 
     useEffect(() => {
         pagination()
+        // eslint-disable-next-line
     }, []);
 
     return (
