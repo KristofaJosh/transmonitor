@@ -90,10 +90,12 @@ const PaymentLogs = ({data: allData}) => {
                         <Select
                             short={"true"}
                             placeholder={data.length < 10 ? data.length : "10"}
-                            options={[{text: "20", value: 20}, {text: "30", value: 30}, {
-                                text: "40",
-                                value: 40
-                            }, {text: "50", value: 50},]}
+                            options={[{text: "10", value: 10},
+                                {text: "20", value: 20}, {text: "30", value: 30},
+                                {
+                                    text: "40",
+                                    value: 40
+                                }, {text: "50", value: 50},]}
                             onChange={getSelectedNumber}
                         />
                     </span>
