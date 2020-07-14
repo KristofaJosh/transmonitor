@@ -21,7 +21,7 @@ const SidebarTemplate = ({invoice, menus}) => {
 
                 <div>
                     {
-                        menus.map(el => (
+                        menus.map((el, index) => (
                             el.hasOwnProperty('head') ?
                                 <div style={{marginBottom: "45px"}} key={el.head}>
                                     <div style={{padding: "0.5rem 2.25rem"}}>
@@ -42,7 +42,7 @@ const SidebarTemplate = ({invoice, menus}) => {
                                     }
                                 </div>
                                 :
-                                <div style={{marginBottom: "30px"}} key={el.head}>
+                                <div style={{marginBottom: "30px"}} key={index}>
                                     {
                                         el.hasOwnProperty('others') ?
                                             el.others.map((el, index) => (

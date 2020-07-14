@@ -39,7 +39,7 @@ select {
     box-shadow: none;
 }
 
-${props => props.number && css`
+${props => props.short && css`
     select {
         width: 50px;
         padding: 0;
@@ -48,7 +48,7 @@ ${props => props.number && css`
 `;
 
 Select.propTypes = {
-    placeholder: PropTypes.string,
+    placeholder: PropTypes.string || PropTypes.number,
     options: PropTypes.array,
 };
 

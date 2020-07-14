@@ -8,7 +8,7 @@ import Select from "../../atoms/select";
 
 const PaymentLogs = ({data: allData}) => {
     const [data, setData] = useState(allData);
-    const [paginate, setPaginate] = useState({active: 0, recordsPerPage: 10, numberOfPages: 1, newView:1});
+    const [paginate, setPaginate] = useState({active: 0, recordsPerPage: 10, numberOfPages: 1, newView: 1});
 
     const filterOptions = [
         {text: 'all', value: 'all'},
@@ -31,8 +31,6 @@ const PaymentLogs = ({data: allData}) => {
         }
     };
 
-
-
     const getSelected = (event) => {
         const selected = event.target.value;
         if (selected === 'all') {
@@ -43,8 +41,6 @@ const PaymentLogs = ({data: allData}) => {
         }
     };
 
-    // console.log(paginate);
-
     const getSelectedNumber = (event) => {
         setData(allData.slice(0, parseInt(event.target.value)));
         setPaginate({
@@ -54,22 +50,23 @@ const PaymentLogs = ({data: allData}) => {
         });
     };
 
+
+    const gotoPage = (index) => {
+        let newView = paginate.recordsPerPage * index + 1;
+        setData(allData.slice(newView, paginate.recordsPerPage + newView));
+        setPaginate({...paginate, active: Math.abs(index + 1), newView: ((index) * paginate.recordsPerPage) + 1})
+    };
+
     const nextPage = () => {
         if (paginate.active !== paginate.numberOfPages) {
-            pagination(paginate.active + 1)
+            gotoPage(paginate.active)
         }
     };
 
     const prevPage = () => {
         if (paginate.active !== 1) {
-            pagination(paginate.active - 1);
+            gotoPage(0 - paginate.active);
         }
-    };
-
-    const gotoPage = (index) => {
-        let newView = paginate.recordsPerPage * index + 1;
-        setData(allData.slice(newView, paginate.recordsPerPage + newView));
-        setPaginate({...paginate, active: index + 1})
     };
 
     const searchPayment = (event) => {
@@ -91,7 +88,7 @@ const PaymentLogs = ({data: allData}) => {
                     <Text medium>showing</Text>
                     <span className="view">
                         <Select
-                            number
+                            short={"true"}
                             placeholder={data.length < 10 ? data.length : "10"}
                             options={[{text: "20", value: 20}, {text: "30", value: 30}, {
                                 text: "40",
@@ -100,7 +97,7 @@ const PaymentLogs = ({data: allData}) => {
                             onChange={getSelectedNumber}
                         />
                     </span>
-                    <Text medium style={{minWidth: "140px"}}>out of {allData.length} payments</Text>
+                    <Text medium style={{minWidth: "140px"}}>out of {allData.length - 1} payments</Text>
                 </span>
                 <span className={'search'}>
                     <Input type={'search'} placeholder={'search payments...'} onKeyUp={searchPayment}
@@ -117,12 +114,14 @@ const PaymentLogs = ({data: allData}) => {
                 <Table data={data}/>
             </div>
             <div className={'pagination'}>
-                <Text medium>Showing {paginate.newView} to {paginate.newView + data.length - 1} of {allData.length} entries</Text>
+                <Text
+                    medium>Showing {paginate.newView} to {paginate.newView + data.length - 1} of {allData.length - 1} entries</Text>
                 <div>
                     <span className={'pagination-container'} onClick={() => prevPage()}>previous</span>
                     {
                         Array(paginate.numberOfPages).fill(null, 0, paginate.numberOfPages).map((el, index) => (
                             <span
+                                key={index}
                                 className={paginate.active === index + 1 ? 'pagination-container active' : 'pagination-container'}
                                 onClick={() => gotoPage(index)}>
                                 {index + 1}
