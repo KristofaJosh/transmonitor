@@ -48,6 +48,8 @@ width: 100%;
 margin: 0 auto;
 
 .transactions {
+    scrollbar-width: none;
+
     margin-bottom: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

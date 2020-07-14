@@ -70,6 +70,8 @@ SidebarTemplate.propTypes = {
 };
 
 const Styling = styled.div`
+scrollbar-width: none;
+
 .inner-contents {
     margin: 60px 0;
 }
