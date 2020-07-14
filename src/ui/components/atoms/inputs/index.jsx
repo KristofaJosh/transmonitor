@@ -25,9 +25,11 @@ width: 100%;
 }
 
 input {
+    outline: none;
     border: none;
     width: 100%;
     margin-left: 1rem;
+    height: 30px;
 }
 
 ${props=>props.clear && css`
